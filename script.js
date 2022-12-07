@@ -69,27 +69,21 @@ function playRound(playerSelection, computerSelection) { // invokes a round from
     }
 
 rock.addEventListener('click', () => {
-    const r = document.createElement("div");
-    r.textContent = playRound('scissors') + ` Player wins: ${playerWins} 
+    result.textContent = playRound('scissors') + ` Player wins: ${playerWins} 
     Computer wins: ${computerWins} Ties: ${ties}`;
-    result.appendChild(r);
 });
 paper.addEventListener('click', () => {
-    const r = document.createElement("div");
-    r.textContent = playRound('scissors') + ` Player wins: ${playerWins} 
+    result.textContent = playRound('scissors') + ` Player wins: ${playerWins} 
     Computer wins: ${computerWins} Ties: ${ties}`;
-    result.appendChild(r);
 });
 scissors.addEventListener('click', () => {
-    const r = document.createElement("div");
-    r.textContent = playRound('scissors') + ` Player wins: ${playerWins} 
+    result.textContent =  playRound('scissors') + ` Player wins: ${playerWins} 
     Computer wins: ${computerWins} Ties: ${ties}`;
-    result.appendChild(r);
 });
 
 clear.addEventListener('click', () => {
     playerWins = 0;
     computerWins = 0;
     ties = 0;
-    result.textContent = '';
+    result.textContent = `Player wins: ${playerWins} Computer wins: ${computerWins} Ties: ${ties}`;
 })
