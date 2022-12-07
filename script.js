@@ -1,6 +1,12 @@
 let playerWins = 0;
 let computerWins = 0;
 let ties = 0;
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
+const result = document.querySelector('.results');
+const clear = document.querySelector('.clear');
+
 
 function getComputerChoice() {  // generates the computers choice
     let num = Math.floor(Math.random() * 3) + 1;
@@ -17,7 +23,7 @@ function getComputerChoice() {  // generates the computers choice
 function playRound(playerSelection, computerSelection) { // invokes a round from user input and automatically
                                                          // generated value from getComputerChoice()
     computerSelection = getComputerChoice();
-    if(playerSelection != 'rock' || playerSelection != 'paper' || playerSelection != 'scissors'){ 
+    if(playerSelection != 'rock' && playerSelection != 'paper' && playerSelection != 'scissors'){ 
         return 'Player has chosen an invalid choice!';
     }
     console.log(computerSelection);
@@ -61,10 +67,29 @@ function playRound(playerSelection, computerSelection) { // invokes a round from
         }
             
     }
-    
-function game() {
-    for(let i = 0; i < 5; i++){
-        let player = prompt('Please choose your choice!');
-        playRound(player);
-    }
-}
+
+rock.addEventListener('click', () => {
+    const r = document.createElement("div");
+    r.textContent = playRound('scissors') + ` Player wins: ${playerWins} 
+    Computer wins: ${computerWins} Ties: ${ties}`;
+    result.appendChild(r);
+});
+paper.addEventListener('click', () => {
+    const r = document.createElement("div");
+    r.textContent = playRound('scissors') + ` Player wins: ${playerWins} 
+    Computer wins: ${computerWins} Ties: ${ties}`;
+    result.appendChild(r);
+});
+scissors.addEventListener('click', () => {
+    const r = document.createElement("div");
+    r.textContent = playRound('scissors') + ` Player wins: ${playerWins} 
+    Computer wins: ${computerWins} Ties: ${ties}`;
+    result.appendChild(r);
+});
+
+clear.addEventListener('click', () => {
+    playerWins = 0;
+    computerWins = 0;
+    ties = 0;
+    result.textContent = '';
+})
